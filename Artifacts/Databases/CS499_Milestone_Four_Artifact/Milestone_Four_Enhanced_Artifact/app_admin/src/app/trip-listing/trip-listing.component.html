@@ -1,0 +1,99 @@
+<section class="trip-tools" aria-label="Trip search and sorting controls">
+  <div class="tool-field wide-field">
+    <label for="tripSearch">Search trips</label>
+    <input
+      id="tripSearch"
+      type="search"
+      class="form-control"
+      placeholder="Search name, code, or resort"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="applyAlgorithms()">
+  </div>
+
+  <div class="tool-field">
+    <label for="resortFilter">Resort</label>
+    <select
+      id="resortFilter"
+      class="form-control"
+      [(ngModel)]="selectedResort"
+      (change)="applyAlgorithms()">
+      <option value="">All resorts</option>
+      <option *ngFor="let resort of resorts" [value]="resort">{{ resort }}</option>
+    </select>
+  </div>
+
+  <div class="tool-field price-field">
+    <label for="minimumPrice">Minimum price</label>
+    <input
+      id="minimumPrice"
+      type="number"
+      min="0"
+      class="form-control"
+      [(ngModel)]="minimumPrice"
+      (ngModelChange)="applyAlgorithms()">
+  </div>
+
+  <div class="tool-field price-field">
+    <label for="maximumPrice">Maximum price</label>
+    <input
+      id="maximumPrice"
+      type="number"
+      min="0"
+      class="form-control"
+      [(ngModel)]="maximumPrice"
+      (ngModelChange)="applyAlgorithms()">
+  </div>
+
+  <div class="tool-field">
+    <label for="sortOption">Sort by</label>
+    <select
+      id="sortOption"
+      class="form-control"
+      [(ngModel)]="sortOption"
+      (change)="applyAlgorithms()">
+      <option value="name-asc">Name: A to Z</option>
+      <option value="name-desc">Name: Z to A</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="date-asc">Start Date: Earliest</option>
+      <option value="date-desc">Start Date: Latest</option>
+      <option value="length-asc">Length: Shortest</option>
+      <option value="length-desc">Length: Longest</option>
+    </select>
+  </div>
+
+  <button type="button" class="btn btn-secondary clear-button" (click)="clearFilters()">
+    Clear Filters
+  </button>
+</section>
+
+<div class="listing-summary">
+  <span>{{ filteredTrips.length }} of {{ trips.length }} trips displayed</span>
+  <button *ngIf="isLoggedIn()" (click)="addTrip()" class="btn btn-info">Add Trip</button>
+</div>
+
+<p *ngIf="message" class="alert alert-info" role="status">{{ message }}</p>
+
+<div class="row">
+  <div *ngFor="let trip of visibleTrips; trackBy: trackTrip">
+    <app-trip-card [trip]="trip" class="card-deck mt-2"></app-trip-card>
+  </div>
+</div>
+
+<nav *ngIf="filteredTrips.length > 0" class="pagination-controls" aria-label="Trip pages">
+  <button
+    type="button"
+    class="btn btn-outline-info"
+    [disabled]="currentPage === 1"
+    (click)="previousPage()">
+    Previous
+  </button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button
+    type="button"
+    class="btn btn-outline-info"
+    [disabled]="currentPage === totalPages"
+    (click)="nextPage()">
+    Next
+  </button>
+</nav>

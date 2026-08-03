@@ -1,0 +1,48 @@
+.trip-tools {
+  align-items: flex-end;
+  background: #f5f7f8;
+  border: 1px solid #d7dde1;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.tool-field {
+  flex: 1 1 11rem;
+}
+
+.wide-field {
+  flex-basis: 18rem;
+}
+
+.price-field {
+  flex-basis: 9rem;
+}
+
+.tool-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.clear-button {
+  margin-bottom: 0;
+}
+
+.listing-summary {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.pagination-controls {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0 2rem;
+}
