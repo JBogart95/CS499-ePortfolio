@@ -92,12 +92,6 @@ I am an Information Technology professional with experience supporting enterpris
 
 ---
 
-## Acknowledgment
-
-Generative AI tools were used to assist with brainstorming, editing, documentation, and code review preparation. All submitted work, code enhancements, and written materials were reviewed, validated, and finalized by the author.
-
----
-
 ## Author
 
 **Jason Bogart**
