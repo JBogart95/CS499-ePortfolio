@@ -22,7 +22,6 @@ GitHub Pages:
 https://JBogart95.github.io/CS499-ePortfolio/
 ```
 
-*(Update this URL if your repository name changes.)*
 
 ---
 
