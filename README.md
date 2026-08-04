@@ -27,7 +27,7 @@ https://JBogart95.github.io/CS499-ePortfolio/
 
 ## Code Review Video
 
-YouTube (Unlisted):
+Code Review
 
 https://youtu.be/gStMvrFyjmw
 
